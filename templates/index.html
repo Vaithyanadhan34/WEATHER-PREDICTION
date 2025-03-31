@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="icon" href="i2.jpg">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+</head>
+
+<body>
+    <center>
+        <h1 class="header">WEATHER PREDICTION</h1>
+       
+        <form action="{{ url_for('predict') }}" method="POST" >
+            <table>
+                <tr>
+                    <td>TEMPERATURE</td> <td> <input type="number" placeholder="Enter celcius value" name="temp" required="required"></td>
+                </tr>
+                <tr>
+                    <td>HUMIDITY</td> <td> <input type="number" placeholder="Like : 20" name="hum" required="required"></td>
+                </tr>
+                <tr>
+                    <td>WIND SPEED</td> <td> <input type="number" placeholder="Like : 9" name="ws" required="required"></td>
+                </tr> 
+                <tr>
+                    <td>PRECIPITATION</td> <td> <input type="number" placeholder="Like : 53" name="pre" required="required"></td>
+                </tr>
+                <tr>
+                    <td>CLOUD COVER </td> 
+                    <td> 
+                        <select name="cc" required="required" class="sel">
+                            <option value="0">Partly Cloudy</option>
+                            <option value="1">Clear</option>
+                            <option value="2">Overcast</option>
+                            <option value="3">Cloudy</option>
+                        </select>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>ATMOSPHERIC PRESSURE</td> <td> <input type="number" placeholder="like: 1005" name="at" required="required"></td>
+                </tr>
+                <tr>
+                    <td>UV INDEX</td> <td> <input type="number" placeholder="like: 4" name="uv" required="required"></td>
+                </tr>
+                <tr>
+                    <td>SEASON</td>  
+                    <td> 
+                        <select name="sea" required="required" class="sel">
+                            <option value="0">Winter</option>
+                            <option value="1">Spring</option>
+                            <option value="2">Summer</option>
+                            <option value="3">Autumn</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VISIBILITY</td> <td> <input type="number" placeholder="like: 5" name="vis" required="required"></td>
+                </tr>
+                <tr>
+                    <td>LOCATION</td> 
+                    <td>
+                        <select name="ll" required="required" class="sel" >
+                            <option value="0">Inland</option>
+                            <option value="1">Mountain</option>
+                            <option value="2">Coastal</option>
+                        </select>
+                    </td>                
+                </tr>
+            </table>
+            <br>
+           <!-- <input type="submit" value="Predict Weather"> -->
+            <button type="submit" class="submit">Predict</button>
+        </form>
+
+        <br>
+        <p>Prediction of Weather: {{ predict_text }}</p>
+        <br> 
+        
+    </center>
+    
+    
+</body>
+</html>
